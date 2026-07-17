@@ -374,6 +374,7 @@ auth.getRedirectResult()
         // Trạng thái đăng nhập
         auth.onAuthStateChanged(user => {
             if (user) {
+                alert("Đã đăng nhập: " + user.email);
                 currentUser = user;
                 document.getElementById("loginBtn").style.display = "none";
                 document.getElementById("userProfile").style.display = "flex";
