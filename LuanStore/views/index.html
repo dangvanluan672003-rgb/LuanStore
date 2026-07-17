@@ -349,12 +349,21 @@
         // Khởi tạo Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
+        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+.then(() => {
+    console.log("Persistence OK");
+})
+.catch((error) => {
+    console.log(error);
+});
         const db = firebase.firestore();
         const provider = new firebase.auth.GoogleAuthProvider();
 auth.getRedirectResult()
 .then((result) => {
     if (result.user) {
-        console.log("Đăng nhập thành công");
+        alert("Đăng nhập thành công!");
+    } else {
+        alert("Không có user");
     }
 })
 .catch((error) => {
