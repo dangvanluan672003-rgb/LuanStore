@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log("Luân Store chạy tại http://localhost:" + PORT);
