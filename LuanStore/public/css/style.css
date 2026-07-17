@@ -1,4 +1,4 @@
-/* Thiết lập màu sắc & Font chữ tối */
+/* Khởi tạo cơ bản */
 * {
     margin: 0;
     padding: 0;
@@ -7,369 +7,121 @@
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #f8f9fa;
+    color: #333333;
     display: flex;
     justify-content: center;
     min-height: 100vh;
 }
 
-/* Container bọc ngoài mô phỏng màn hình Mobile */
+/* Khung màn hình điện thoại */
 .app-container {
     width: 100%;
     max-width: 480px;
-    background-color: #0b0914;
-    padding: 15px;
-    padding-bottom: 90px; /* Chừa chỗ cho thanh menu dưới */
+    background-color: #f5f6f8;
     position: relative;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    min-height: 100vh;
 }
 
-/* Header */
-.app-header {
+/* Thanh điều hướng Header */
+.store-header {
+    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 20px 0;
+    padding: 12px 18px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.btn-close {
-    color: #ffffff;
-    font-size: 16px;
+.store-header .store-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.back-btn {
+    font-size: 18px;
     cursor: pointer;
+    color: #333333;
+    font-weight: bold;
 }
 
-.header-title {
+.menu-btn {
+    font-size: 14px;
+    cursor: pointer;
+    color: #000000;
+    letter-spacing: -1px;
+}
+
+/* Banner Xanh Gradient */
+.store-banner {
+    background: linear-gradient(180deg, #1e90ff 0%, #00bfff 100%);
+    padding: 45px 20px;
     text-align: center;
-}
-
-.header-title h2 {
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.header-title p {
-    font-size: 11px;
-    color: #88889d;
-}
-
-.btn-menu {
-    font-size: 18px;
     color: #ffffff;
 }
 
-/* Profile Card */
-.profile-card {
-    background: linear-gradient(135deg, #151124, #1b1632);
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #231d3a;
-    margin-bottom: 20px;
-}
-
-.profile-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #4ade80, #22c55e);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.store-banner h2 {
+    font-size: 24px;
     font-weight: bold;
-    font-size: 18px;
-    color: white;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
 }
 
-.user-info h3 {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.user-info p {
-    font-size: 11px;
-    color: #88889d;
-}
-
-.profile-right {
-    text-align: right;
-}
-
-.lang-switch {
-    background-color: #110e1c;
-    border-radius: 20px;
-    padding: 3px;
-    display: inline-flex;
-    gap: 5px;
-    margin-bottom: 8px;
-    border: 1px solid #231d3a;
-}
-
-.lang {
-    font-size: 10px;
-    padding: 3px 10px;
-    border-radius: 15px;
-    color: #88889d;
-    cursor: pointer;
-}
-
-.lang.active {
-    background-color: #231d3a;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.balance {
+.store-banner p {
     font-size: 14px;
-    font-weight: bold;
+    opacity: 0.95;
+    line-height: 1.4;
 }
 
-.balance .vnd {
-    color: #ff2a85;
-    margin-right: 8px;
-}
-
-.balance .usd {
-    color: #a855f7;
-}
-
-/* Grid Chọn Sản Phẩm */
-.product-selection {
-    margin-bottom: 20px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.grid-item {
-    background-color: #120f20;
-    border: 1px solid #1f1a35;
-    border-radius: 15px;
-    padding: 12px 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.grid-item p {
-    font-size: 10px;
-    font-weight: bold;
-    color: #b3b3cb;
-    margin-top: 8px;
-    text-transform: uppercase;
-}
-
-/* Icon style */
-.item-icon {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    background-color: #1c1833;
-}
-
-.grid-item.active {
-    border-color: #ff2a85;
-    box-shadow: 0 0 10px rgba(255, 42, 133, 0.3);
-}
-
-.grid-item.active p {
-    color: #ffffff;
-}
-
-/* Chi Tiết Gói */
-.package-section {
-    margin-bottom: 20px;
-}
-
-.package-group {
-    display: none; /* Mặc định ẩn, sẽ hiển thị qua JS class active */
-}
-
-.package-group.active {
-    display: block;
-}
-
-.group-header {
-    background-color: #171d2b;
-    border-radius: 12px 12px 0 0;
-    padding: 12px 15px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #e2e8f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 4px solid #ff2a85;
-}
-
-.group-header i {
-    color: #ff2a85;
-}
-
-.package-list {
-    background-color: #110e1c;
-    border-radius: 0 0 12px 12px;
-    border: 1px solid #1f1a35;
-    border-top: none;
-    padding: 10px;
-}
-
-.package-item {
-    background-color: #151124;
-    border-radius: 10px;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    border: 1px solid #231d3a;
-}
-
-.package-item:last-child {
-    margin-bottom: 0;
-}
-
-.pkg-info h4 {
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.pkg-info p {
-    font-size: 11px;
-    color: #88889d;
-    margin-top: 4px;
-}
-
-.pkg-info span {
-    color: #ff2a85;
-    font-weight: bold;
-}
-
-.pkg-price {
-    background-color: #231d3a;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* Loại tiền thanh toán */
-.payment-type {
-    margin-bottom: 20px;
-}
-
-.payment-type h3, .giftcode-section h3 {
-    font-size: 12px;
-    color: #88889d;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.payment-options {
-    display: flex;
-    gap: 15px;
-}
-
-.pay-btn {
-    flex: 1;
-    background-color: #120f20;
-    border: 1px solid #1f1a35;
-    text-align: center;
-    padding: 12px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    color: #88889d;
-}
-
-.pay-btn.active {
-    border-color: #ff2a85;
-    color: #ffffff;
-    background-color: #151124;
-}
-
-/* Giftcode */
-.giftcode-section {
-    margin-bottom: 25px;
-}
-
-.giftcode-input {
-    display: flex;
-    gap: 10px;
-}
-
-.giftcode-input input {
-    flex: 1;
-    background-color: #120f20;
-    border: 1px solid #1f1a35;
-    border-radius: 10px;
-    padding: 12px;
-    color: white;
-    font-size: 13px;
-    outline: none;
-}
-
-.giftcode-input button {
-    background-color: #ff2a85;
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Bottom Navigation Bar */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 480px;
-    background-color: #0d0a17;
-    border-top: 1px solid #1f1a35;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    z-index: 1000;
-}
-
-.nav-item {
+/* Vùng chứa sản phẩm */
+.product-list {
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    color: #88889d;
-    text-decoration: none;
-    font-size: 10px;
-    width: 20%;
+    gap: 18px;
 }
 
-.nav-item i {
-    font-size: 20px;
+/* Thẻ Sản Phẩm Trắng */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.nav-item.active {
-    color: #ff2a85;
+.product-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
 }
+
+.product-card .price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff3b30; /* Màu đỏ giá tiền nổi bật */
+    margin-bottom: 20px;
+}
+
+/* Nút Mua ngay màu xanh dương */
+.buy-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 28px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.buy-btn:hover {
+    background-color: #0056b3;
+}
+
 
