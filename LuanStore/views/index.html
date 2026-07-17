@@ -348,6 +348,9 @@
 };
         // Khởi tạo Firebase
         firebase.initializeApp(firebaseConfig);
+        window.onerror = function(message, source, line, col, error) {
+    alert("JS Error:\n" + message + "\nDòng: " + line);
+};
         const auth = firebase.auth();
         auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 .then(() => {
