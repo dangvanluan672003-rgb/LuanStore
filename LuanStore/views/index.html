@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luân Store</title>
-    <!-- Thêm thư viện Icon FontAwesome để hiện logo FB, TikTok, Zalo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Dán trực tiếp CSS vào đây để không bao giờ bị lỗi đường dẫn nữa -->
     <style>
         /* Khởi tạo cơ bản */
         * {
@@ -117,7 +115,7 @@
         .product-card .price {
             font-size: 22px;
             font-weight: bold;
-            color: #ff3b30;
+            color: #ff3b30; /* Màu đỏ giá tiền nổi bật */
             margin-bottom: 20px;
         }
 
@@ -188,6 +186,7 @@
             background-color: #0068ff;
         }
 
+        /* Logo Zalo tự thiết kế */
         .zalo-icon {
             font-weight: 900;
             font-size: 13px;
@@ -205,37 +204,31 @@
 <body>
 
     <div class="app-container">
-        <!-- Thanh điều hướng trên cùng -->
         <header class="store-header">
             <span class="back-btn">&#10094;</span>
             <h1 class="store-name">Luân Store</h1>
             <span class="menu-btn">&#8226;&#8226;&#8226;</span>
         </header>
 
-        <!-- Banner màu xanh chuyển sắc (Gradient) -->
         <section class="store-banner">
             <h2>Chào mừng đến với Luân Store</h2>
             <p>Chuyên bán Key Game, Gift Card và Game Pass chính hãng.</p>
         </section>
 
-        <!-- Danh sách thẻ sản phẩm -->
         <section class="product-list">
             
-            <!-- Sản phẩm 1 -->
             <div class="product-card">
                 <h3>Steam Gift Card 100K</h3>
                 <p class="price">100.000đ</p>
                 <button class="buy-btn">Mua ngay</button>
             </div>
 
-            <!-- Sản phẩm 2 -->
             <div class="product-card">
                 <h3>Xbox Game Pass</h3>
                 <p class="price">150.000đ</p>
                 <button class="buy-btn">Mua ngay</button>
             </div>
 
-            <!-- Sản phẩm 3 -->
             <div class="product-card">
                 <h3>Steam Wallet 500K</h3>
                 <p class="price">500.000đ</p>
@@ -244,19 +237,18 @@
 
         </section>
 
-        <!-- Phần liên hệ mạng xã hội (Facebook, TikTok, Zalo) -->
         <footer class="social-contact">
             <p>Kết nối với chúng tôi qua:</p>
             <div class="social-links">
-                <a href="https://facebook.com/" target="_blank" class="social-item facebook">
+                <a href="https://facebook.com" target="_blank" class="social-item facebook">
                     <i class="fab fa-facebook-f"></i>
                     <span>Facebook</span>
                 </a>
-                <a href="https://tiktok.com/" target="_blank" class="social-item tiktok">
+                <a href="https://tiktok.com" target="_blank" class="social-item tiktok">
                     <i class="fab fa-tiktok"></i>
                     <span>TikTok</span>
                 </a>
-                <a href="https://zalo.me/" target="_blank" class="social-item zalo">
+                <a href="https://zalo.me" target="_blank" class="social-item zalo">
                     <span class="zalo-icon">Z</span>
                     <span>Zalo</span>
                 </a>
@@ -266,6 +258,7 @@
 
 </body>
 </html>
+
 
 
 
