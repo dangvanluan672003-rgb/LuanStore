@@ -1,66 +1,241 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luân Store</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duy Mạnh Store - Mini App</title>
+    <!-- Thêm thư viện Icon FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>🛒 Luân Store</h1>
-  <nav>
-    <a href="#">Trang chủ</a>
-    <a href="#">Sản phẩm</a>
-    <a href="#">Liên hệ</a>
-    <a href="#">Đăng nhập</a>
-  </nav>
-</header>
+    <div class="app-container">
+        <!-- Header Mini App -->
+        <header class="app-header">
+            <span class="btn-close">Đóng</span>
+            <div class="header-title">
+                <h2>Duy Mạnh Store</h2>
+                <p>mini app</p>
+            </div>
+            <span class="btn-menu"><i class="fas fa-ellipsis-h"></i></span>
+        </header>
 
-<section class="banner">
-  <h2>Chào mừng đến với Luân Store</h2>
-  <p>Chuyên bán Key Game, Gift Card và Game Pass chính hãng.</p>
-</section>
+        <!-- Profile Card -->
+        <section class="profile-card">
+            <div class="profile-left">
+                <div class="avatar">M</div>
+                <div class="user-info">
+                    <h3>Migul</h3>
+                    <p>ID: 6546405848</p>
+                </div>
+            </div>
+            <div class="profile-right">
+                <div class="lang-switch">
+                    <span class="lang active"><i class="fas fa-language"></i> VI</span>
+                    <span class="lang"><i class="fas fa-globe"></i> EN</span>
+                </div>
+                <div class="balance">
+                    <span class="vnd">5.000đ</span>
+                    <span class="usd">$0.00</span>
+                </div>
+            </div>
+        </section>
 
-<main class="products">
+        <!-- Grid Chọn Sản Phẩm -->
+        <section class="product-selection">
+            <div class="grid-container">
+                <!-- Item 1 -->
+                <div class="grid-item" onclick="switchCategory('fluorite', this)">
+                    <div class="item-icon fluorite"><i class="fas fa-gem"></i></div>
+                    <p>FLUORITE</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="grid-item" onclick="switchCategory('migul-lite', this)">
+                    <div class="item-icon lite"><i class="fas fa-bolt"></i></div>
+                    <p>Migul Lite Vietnam</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="grid-item" onclick="switchCategory('migul-pro', this)">
+                    <div class="item-icon pro"><i class="fas fa-crown"></i></div>
+                    <p>Migul Pro Vietnam</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="grid-item" onclick="switchCategory('cheatprox', this)">
+                    <div class="item-icon ios"><i class="fas fa-shield-alt"></i></div>
+                    <p>CHEATPROX Y VIP IOS</p>
+                </div>
+                <!-- Item 5 -->
+                <div class="grid-item" onclick="switchCategory('drip-client', this)">
+                    <div class="item-icon android"><i class="fas fa-robot"></i></div>
+                    <p>DRIP CLIENT NO ROOT</p>
+                </div>
+                <!-- Item 6 (Active mặc định như ảnh 1) -->
+                <div class="grid-item active" onclick="switchCategory('cert', this)">
+                    <div class="item-icon cert"><i class="fas fa-file-signature"></i></div>
+                    <p>CHỨNG CHỈ LẤY...</p>
+                </div>
+            </div>
+        </section>
 
-  <div class="product">
-    <h3>Steam Gift Card 100K</h3>
-    <p class="price">100.000đ</p>
-    <button>Mua ngay</button>
-  </div>
+        <!-- Chi Tiết Gói (Thay đổi động theo Sản phẩm được chọn) -->
+        <section class="package-section">
+            
+            <!-- GÓI 1: CHỨNG CHỈ LẤY NGAY (Active mặc định) -->
+            <div class="package-group active" id="pkg-cert">
+                <div class="group-header">
+                    <span><i class="fas fa-gift"></i> Gói: CHỨNG CHỈ LẤY NGAY+UNBAN</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="package-list">
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>1 NĂM KBH</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>11</span></p>
+                        </div>
+                        <div class="pkg-price">80.000đ</div>
+                    </div>
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>1 NĂM BH 2 THÁNG</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>17</span></p>
+                        </div>
+                        <div class="pkg-price">120.000đ</div>
+                    </div>
+                </div>
+            </div>
 
-  <div class="product">
-    <h3>Xbox Game Pass</h3>
-    <p class="price">150.000đ</p>
-    <button>Mua ngay</button>
-  </div>
+            <!-- GÓI 2: MIGUL LITE -->
+            <div class="package-group" id="pkg-migul-lite">
+                <div class="group-header">
+                    <span><i class="fas fa-gift"></i> Gói: Migul Lite Vietnam</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="package-list">
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>1 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>6</span></p>
+                        </div>
+                        <div class="pkg-price">50.000đ</div>
+                    </div>
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>7 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>11</span></p>
+                        </div>
+                        <div class="pkg-price">150.000đ</div>
+                    </div>
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>30 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>10</span></p>
+                        </div>
+                        <div class="pkg-price">350.000đ</div>
+                    </div>
+                </div>
+            </div>
 
-  <div class="product">
-    <h3>Steam Wallet 500K</h3>
-    <p class="price">500.000đ</p>
-    <button>Mua ngay</button>
-  </div>
+            <!-- GÓI 3: MIGUL PRO -->
+            <div class="package-group" id="pkg-migul-pro">
+                <div class="group-header">
+                    <span><i class="fas fa-gift"></i> Gói: Migul Pro Vietnam</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="package-list">
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>1 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>9</span></p>
+                        </div>
+                        <div class="pkg-price">70.000đ</div>
+                    </div>
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>7 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>6</span></p>
+                        </div>
+                        <div class="pkg-price">215.000đ</div>
+                    </div>
+                    <div class="package-item">
+                        <div class="pkg-info">
+                            <h4>30 Ngày</h4>
+                            <p><i class="fas fa-cubes"></i> Kho: <span>12</span></p>
+                        </div>
+                        <div class="pkg-price">450.000đ</div>
+                    </div>
+                </div>
+            </div>
 
-</main>
+            <!-- Các gói khác (Bạn có thể tự thêm tương tự)... -->
 
-<footer>
-  <p>© 2026 Luân Store - All Rights Reserved</p>
+        </section>
 
-  <div class="social-links">
-    <a href="https://www.facebook.com/share/1EFp1sZwQN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-      📘 Facebook
-    </a>
-    <a href="https://zalo.me/0964927528" target="_blank" rel="noopener noreferrer">
-      💬 Zalo
-    </a>
-    <a href="https://www.tiktok.com/@.hiblack" target="_blank" rel="noopener noreferrer">
-      🎵 TikTok
-    </a>
-  </div>
-</footer>
+        <!-- Loại tiền thanh toán -->
+        <section class="payment-type">
+            <h3><i class="fas fa-wallet"></i> LOẠI TIỀN THANH TOÁN</h3>
+            <div class="payment-options">
+                <div class="pay-btn active">đ VND</div>
+                <div class="pay-btn">$ USD</div>
+            </div>
+        </section>
 
+        <!-- Giftcode -->
+        <section class="giftcode-section">
+            <h3><i class="fas fa-ticket-alt"></i> MÃ GIẢM GIÁ / GIFTCODE</h3>
+            <div class="giftcode-input">
+                <input type="text" placeholder="Nhập mã giảm giá của bạn...">
+                <button>Áp dụng</button>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-key"></i>
+                <span>Mua Key</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-id-card"></i>
+                <span>Mua Acc</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-credit-card"></i>
+                <span>Nạp Tiền</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>Top Nạp</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Cá Nhân</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- JavaScript xử lý chuyển tab gói cước mượt mà -->
+    <script>
+        function switchCategory(category, element) {
+            // Xóa active ở tất cả các nút sản phẩm
+            document.querySelectorAll('.grid-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Thêm active vào nút vừa bấm
+            element.classList.add('active');
+
+            // Ẩn tất cả các danh sách gói cước
+            document.querySelectorAll('.package-group').forEach(group => {
+                group.classList.remove('active');
+            });
+
+            // Hiển thị danh sách gói cước tương ứng
+            const targetGroup = document.getElementById('pkg-' + category);
+            if (targetGroup) {
+                targetGroup.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
 
