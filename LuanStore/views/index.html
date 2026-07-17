@@ -360,14 +360,22 @@
         const provider = new firebase.auth.GoogleAuthProvider();
 auth.getRedirectResult()
 .then((result) => {
+    alert(JSON.stringify(result));
+
     if (result.user) {
-        alert("Đăng nhập thành công!");
+        alert("Đăng nhập: " + result.user.email);
     } else {
-        alert("Không có user");
+        alert("result.user = null");
     }
 })
 .catch((error) => {
-    alert(error.code + "\n" + error.message);
+    alert(
+        error.code +
+        "\n" +
+        error.message +
+        "\n" +
+        JSON.stringify(error)
+    );
 });
         let currentUser = null;
 
