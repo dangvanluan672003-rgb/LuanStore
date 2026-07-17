@@ -352,7 +352,15 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
         const provider = new firebase.auth.GoogleAuthProvider();
-
+auth.getRedirectResult()
+.then((result) => {
+    if (result.user) {
+        console.log("Đăng nhập thành công");
+    }
+})
+.catch((error) => {
+    alert(error.code + "\n" + error.message);
+});
         let currentUser = null;
 
         // Trạng thái đăng nhập
@@ -373,10 +381,8 @@
 
         // Đăng nhập bằng Google thật
         function loginWithGoogle() {
-            auth.signInWithPopup(provider).catch(error => {
-                alert("Đăng nhập thất bại: " + error.message);
-            });
-        }
+    auth.signInWithRedirect(provider);
+}
 
         // Đăng xuất
         function logout() {
