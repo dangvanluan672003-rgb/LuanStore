@@ -361,25 +361,7 @@
 });
         const db = firebase.firestore();
         const provider = new firebase.auth.GoogleAuthProvider();
-auth.getRedirectResult()
-.then((result) => {
-    alert(JSON.stringify(result));
-
-    if (result.user) {
-        alert("Đăng nhập: " + result.user.email);
-    } else {
-        alert("result.user = null");
-    }
-})
-.catch((error) => {
-    alert(
-        error.code +
-        "\n" +
-        error.message +
-        "\n" +
-        JSON.stringify(error)
-    );
-});
+        
         let currentUser = null;
 
         // Trạng thái đăng nhập
@@ -401,7 +383,27 @@ auth.getRedirectResult()
 
         // Đăng nhập bằng Google thật
         function loginWithGoogle() {
-    auth.signInWithRedirect(provider);
+
+    auth.signInWithPopup(provider)
+    .then((result) => {
+
+        currentUser = result.user;
+
+        console.log("Đăng nhập thành công:", result.user.email);
+
+    })
+    .catch((error) => {
+
+        alert(
+            error.code +
+            "\n" +
+            error.message
+        );
+
+        console.error(error);
+
+    });
+
 }
 
         // Đăng xuất
