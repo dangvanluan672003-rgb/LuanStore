@@ -1,479 +1,195 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luân Store - Shop Game & Gift Card</title>
-    <!-- Thư viện biểu tượng FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Khởi tạo cơ bản */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dành Riêng Cho Em ❤️</title>
 
-        body {
-            background-color: #1a1a1a;
-            color: #333333;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        /* Khung màn hình điện thoại */
-        .app-container {
-            width: 100%;
-            max-width: 480px;
-            background-color: #222222; 
-            position: relative;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Thanh điều hướng Header */
-        .store-header {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 18px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .store-header .store-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #000000;
-        }
-
-        /* Nút đăng nhập Google */
-        .login-btn {
-            background-color: #df4930;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            font-size: 11px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .user-profile {
-            display: none;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .user-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid #007bff;
-        }
-
-        /* Banner Xanh dương nổi bật */
-        .store-banner {
-            background: linear-gradient(180deg, #1e90ff 0%, #00bfff 100%);
-            padding: 40px 20px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .store-banner h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .store-banner p {
-            font-size: 13px;
-            opacity: 0.95;
-        }
-
-        /* Danh sách sản phẩm */
-        .product-list {
-            padding: 20px 15px 10px 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* Thẻ Sản phẩm */
-        .product-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-card h3 {
-            font-size: 17px;
-            font-weight: bold;
-            color: #000000;
-            margin-bottom: 8px;
-        }
-
-        .product-card .details {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .product-card .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff3b30;
-            margin-bottom: 15px;
-        }
-
-        .buy-btn {
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            padding: 10px 28px;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        /* Phần Lịch Sử Mua Hàng */
-        .history-section {
-            padding: 10px 15px 25px 15px;
-            flex: 1;
-        }
-
-        .history-title {
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .history-box {
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            padding: 15px;
-            min-height: 80px;
-            color: #aaa;
-            font-size: 12px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #444;
-        }
-
-        .history-list {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-align: left;
-        }
-
-        .history-item {
-            background-color: #333;
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 4px solid #28a745;
-            color: #fff;
-        }
-
-        .history-item span {
-            display: block;
-            font-size: 10px;
-            color: #aaa;
-            margin-top: 4px;
-        }
-
-        /* Chân trang */
-        .social-contact {
-            background-color: #ffffff;
-            padding: 20px 15px;
-            text-align: center;
-            border-top: 1px solid #ededed;
-        }
-
-        .social-contact p {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .social-item.facebook { background-color: #1877f2; }
-        .social-item.tiktok { background-color: #010101; }
-        .social-item.zalo { background-color: #0068ff; }
-
-        .zalo-icon {
-            font-weight: 900;
-            font-size: 13px;
-            background-color: #ffffff;
-            color: #0068ff;
-            width: 18px;
-            height: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-    </style>
-
-    <!-- Nhúng thư viện Firebase chính thức từ Google -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-</head>
-<body>
-
-    <div class="app-container">
-        <!-- Header -->
-        <header class="store-header">
-            <h1 class="store-name">Luân Store</h1>
-            
-            <!-- Khu vực đăng nhập / thông tin user -->
-            <button class="login-btn" id="loginBtn" onclick="loginWithGoogle()">
-                <i class="fab fa-google"></i> Đăng nhập
-            </button>
-            <div class="user-profile" id="userProfile">
-                <img src="" alt="Avatar" class="user-avatar" id="userAvatar">
-                <button class="login-btn" style="background-color: #555;" onclick="logout()">Thoát</button>
-            </div>
-        </header>
-
-        <!-- Banner -->
-        <section class="store-banner">
-            <h2>Luân Store</h2>
-            <p>Chuyên bán Key Game, Gift Card và Game Pass chính hãng</p>
-        </section>
-
-        <!-- Danh sách sản phẩm -->
-        <section class="product-list">
-            
-            <div class="product-card">
-                <h3>Steam Gift Card 100K</h3>
-                <p class="details">Nạp trực tiếp ví Steam mua game bản quyền</p>
-                <p class="price">100.000đ</p>
-                <button class="buy-btn" onclick="buyAcc('Steam Gift Card 100K', 100000)">Mua ngay</button>
-            </div>
-
-            <div class="product-card">
-                <h3>Xbox Game Pass</h3>
-                <p class="details">Gói trải nghiệm hàng trăm game PC/Xbox cực khủng</p>
-                <p class="price">150.000đ</p>
-                <button class="buy-btn" onclick="buyAcc('Xbox Game Pass', 150000)">Mua ngay</button>
-            </div>
-
-            <div class="product-card">
-                <h3>Steam Wallet 500K</h3>
-                <p class="details">Mã thẻ nạp ví Steam tự động an toàn</p>
-                <p class="price">500.000đ</p>
-                <button class="buy-btn" onclick="buyAcc('Steam Wallet 500K', 500000)">Mua ngay</button>
-            </div>
-
-        </section>
-
-        <!-- Lịch Sử Mua Hàng -->
-        <section class="history-section">
-            <div class="history-title">
-                <i class="fas fa-history"></i> Lịch Sử Mua Thẻ
-            </div>
-            <div class="history-box" id="historyBox">
-                Vui lòng đăng nhập Google để xem lịch sử mua hàng của bạn.
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="social-contact">
-            <p>Kết nối với Luân Store qua:</p>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank" class="social-item facebook">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
-                </a>
-                <a href="https://tiktok.com" target="_blank" class="social-item tiktok">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
-                </a>
-                <a href="https://zalo.me" target="_blank" class="social-item zalo">
-                    <span class="zalo-icon">Z</span>
-                    <span>Zalo</span>
-                </a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Hệ thống xử lý Đăng nhập và Lưu dữ liệu thật -->
-    <script>
-        // Cấu hình Firebase thực tế của Luân Store
-        const firebaseConfig = {
-  apiKey: "AIzaSyDRq4u-usQAiX87B8QEnmocWmyAqrgKkmQ",
-  authDomain: "hi-store-2a7d5.firebaseapp.com",
-  projectId: "hi-store-2a7d5",
-  storageBucket: "hi-store-2a7d5.firebasestorage.app",
-  messagingSenderId: "572988359729",
-  appId: "1:572988359729:web:1dea5ad60d9f5fa5b54110",
-  measurementId: "G-CV2QRLWD2G"
-};
-        // Khởi tạo Firebase
-        firebase.initializeApp(firebaseConfig);
-        window.onerror = function(message, source, line, col, error) {
-    alert("JS Error:\n" + message + "\nDòng: " + line);
-};
-        const auth = firebase.auth();
-        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-.then(() => {
-    console.log("Persistence OK");
-})
-.catch((error) => {
-    console.log(error);
-});
-        const db = firebase.firestore();
-        const provider = new firebase.auth.GoogleAuthProvider();
-        
-        let currentUser = null;
-
-        // Trạng thái đăng nhập
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                alert("Đã đăng nhập: " + user.email);
-                currentUser = user;
-                document.getElementById("loginBtn").style.display = "none";
-                document.getElementById("userProfile").style.display = "flex";
-                document.getElementById("userAvatar").src = user.photoURL;
-                loadPurchaseHistory(user.uid);
-            } else {
-                currentUser = null;
-                document.getElementById("loginBtn").style.display = "flex";
-                document.getElementById("userProfile").style.display = "none";
-                document.getElementById("historyBox").innerHTML = "Vui lòng đăng nhập Google để xem lịch sử mua hàng của bạn.";
-            }
-        });
-
-        // Đăng nhập bằng Google thật
-        function loginWithGoogle() {
-
-    auth.signInWithPopup(provider)
-    .then((result) => {
-
-        currentUser = result.user;
-
-        console.log("Đăng nhập thành công:", result.user.email);
-
-    })
-    .catch((error) => {
-
-        alert(
-            error.code +
-            "\n" +
-            error.message
-        );
-
-        console.error(error);
-
-    });
-
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-        // Đăng xuất
-        function logout() {
-            auth.signOut();
-        }
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+}
 
-        // Mua Acc và lưu lên Firestore thật
-        function buyAcc(prodName, price) {
-            if (!currentUser) {
-                alert("Vui lòng đăng nhập tài khoản Google trước khi mua hàng!");
-                return;
-            }
+.container{
+text-align:center;
+}
 
-            const randomID = Math.floor(Math.random() * 1000000);
-            const cardCode = "MÃ THẺ: STEAM-GIFT-" + Math.random().toString(36).substring(2, 7).toUpperCase() + "-" + Math.random().toString(36).substring(2, 7).toUpperCase() + " | Seri: " + randomID;
+button{
+padding:18px 45px;
+font-size:24px;
+border:none;
+border-radius:50px;
+background:#ff3366;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px #ff3366;
+transition:.3s;
+}
 
-            // Tiến hành lưu thông tin lên database thật
-            db.collection("orders").add({
-                userId: currentUser.uid,
-                productName: prodName,
-                accountInfo: cardCode,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                alert("Mua thành công!\n" + cardCode);
-                loadPurchaseHistory(currentUser.uid); // Tải lại lịch sử ngay sau khi mua
-            }).catch(error => {
-                alert("Lỗi lưu đơn hàng: " + error.message);
-            });
-        }
+button:hover{
+transform:scale(1.1);
+}
 
-        // Tải lịch sử mua hàng thực tế từ database
-        function loadPurchaseHistory(uid) {
-            const historyBox = document.getElementById("historyBox");
-            historyBox.innerHTML = "Đang tải lịch sử mua hàng...";
+#loveBox{
+display:none;
+background:white;
+padding:25px;
+border-radius:20px;
+width:90%;
+max-width:420px;
+margin-top:20px;
+animation:show .8s;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
 
-            db.collection("orders")
-              .where("userId", "==", uid)
-              .orderBy("timestamp", "desc")
-              .get()
-              .then(querySnapshot => {
-                  if (querySnapshot.empty) {
-                      historyBox.innerHTML = "Bạn chưa mua thẻ nào.";
-                      return;
-                  }
+h2{
+color:#ff3366;
+margin-bottom:15px;
+}
 
-                  let html = '<div class="history-list">';
-                  querySnapshot.forEach(doc => {
-                      const data = doc.data();
-                      const timeStr = data.timestamp ? data.timestamp.toDate().toLocaleString('vi-VN') : 'Đang xử lý...';
-                      html += `
-                          <div class="history-item">
-                              <strong>${data.productName}</strong>
-                              <p style="font-size: 11px; margin-top: 4px; color: #51cf66; word-break: break-all;">${data.accountInfo}</p>
-                              <span>Đã mua lúc: ${timeStr}</span>
-                          </div>
-                      `;
-                  });
-                  html += '</div>';
-                  historyBox.innerHTML = html;
-              }).catch(error => {
-                  historyBox.innerHTML = "Không thể tải lịch sử: " + error.message;
-              });
-        }
-    </script>
+p{
+font-size:18px;
+line-height:1.8;
+}
+
+.heart{
+position:absolute;
+color:red;
+animation:fly 6s linear infinite;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+@keyframes show{
+from{
+transform:scale(.3);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+#question{
+display:none;
+margin-top:20px;
+}
+
+#yes,#no{
+margin:10px;
+font-size:20px;
+padding:12px 30px;
+}
+
+#result{
+display:none;
+margin-top:20px;
+font-size:26px;
+color:#ff3366;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<button onclick="openLove()">❤️ BẤM VÀO ĐÂY ❤️</button>
+
+<div id="loveBox">
+
+<h2>💌 Gửi Người Anh Thương 💌</h2>
+
+<p>
+Có thể em không biết...<br><br>
+
+Mỗi ngày được nói chuyện với em đều là niềm vui của anh.<br><br>
+
+Cảm ơn em đã xuất hiện trong cuộc đời anh.<br><br>
+
+Anh mong em sẽ luôn hạnh phúc và luôn mỉm cười.<br><br>
+
+❤️ Anh thương em rất nhiều ❤️
+</p>
+
+<div id="question">
+<h2>Em có đồng ý làm người yêu anh không? 💖</h2>
+
+<button id="yes">Đồng ý</button>
+
+<button id="no">Không</button>
+
+</div>
+
+<div id="result">
+🎉 Cảm ơn em! ❤️
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openLove(){
+document.getElementById("loveBox").style.display="block";
+document.getElementById("question").style.display="block";
+}
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},250);
+
+let no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+no.style.position="absolute";
+no.style.left=Math.random()*80+"vw";
+no.style.top=Math.random()*80+"vh";
+});
+
+document.getElementById("yes").onclick=function(){
+document.getElementById("result").style.display="block";
+};
+
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
