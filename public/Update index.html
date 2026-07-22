@@ -1,36 +1,89 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dành Riêng Cho Em ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Dành Riêng Cho Em ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- Nền -->
 <div id="stars"></div>
+<div id="hearts"></div>
+<div id="flowers"></div>
 
-<div class="card">
+<!-- Nhạc -->
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <h1>💖 Gửi Em 💖</h1>
+<!-- Màn hình mở đầu -->
+<section class="welcome">
 
-    <p id="typing"></p>
+<h1>
+Có một món quà dành riêng cho em ❤️
+</h1>
 
-    <button id="loveBtn">
-        Đồng ý ❤️
-    </button>
+<p>
+Nếu em đã sẵn sàng...
+<br>
+hãy nhấn nút bên dưới nhé.
+</p>
+
+<button id="openBtn">
+🎁 MỞ MÓN QUÀ
+</button>
+
+</section>
+
+<!-- Lá thư -->
+<section class="letter hide" id="letter">
+
+<div class="glass">
+
+<h2>
+💌 Gửi người anh thương
+</h2>
+
+<p id="typing"></p>
+
+<div class="buttons">
+
+<button id="yes">
+💖 Đồng ý
+</button>
+
+<button id="no">
+🙈 Không
+</button>
 
 </div>
 
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+</div>
+
+</section>
+
+<!-- Khi đồng ý -->
+<div id="success" class="hide">
+
+<h1>
+❤️ Cảm ơn em ❤️
+</h1>
+
+<h2>
+Từ hôm nay...
+<br>
+Anh sẽ là người làm em cười mỗi ngày.
+</h2>
+
+</div>
 
 <script src="script.js"></script>
 
