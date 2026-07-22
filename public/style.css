@@ -56,3 +56,52 @@ button:hover{
     transform:scale(1.08);
     box-shadow:0 0 25px #ff4d88;
 }
+/* ===== Premium Effect ===== */
+
+body{
+    background: linear-gradient(-45deg,#0f172a,#1e3a8a,#7c3aed,#ec4899);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.welcome,
+.letter,
+#success{
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+button{
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #ff4d88;
+}
+
+h1{
+    text-shadow:0 0 20px rgba(255,255,255,.5);
+}
+
+.glass{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+}
