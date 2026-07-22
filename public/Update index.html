@@ -1,198 +1,38 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dành Riêng Cho Em ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dành Riêng Cho Em ❤️</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    <link rel="stylesheet" href="style.css">
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-overflow:hidden;
-}
-
-.container{
-text-align:center;
-}
-
-button{
-padding:18px 45px;
-font-size:24px;
-border:none;
-border-radius:50px;
-background:#ff3366;
-color:white;
-cursor:pointer;
-box-shadow:0 0 20px #ff3366;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.1);
-}
-
-#loveBox{
-display:none;
-background:white;
-padding:25px;
-border-radius:20px;
-width:90%;
-max-width:420px;
-margin-top:20px;
-animation:show .8s;
-box-shadow:0 0 20px rgba(0,0,0,.3);
-}
-
-h2{
-color:#ff3366;
-margin-bottom:15px;
-}
-
-p{
-font-size:18px;
-line-height:1.8;
-}
-
-.heart{
-position:absolute;
-color:red;
-animation:fly 6s linear infinite;
-}
-
-@keyframes fly{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
-}
-
-@keyframes show{
-from{
-transform:scale(.3);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-#question{
-display:none;
-margin-top:20px;
-}
-
-#yes,#no{
-margin:10px;
-font-size:20px;
-padding:12px 30px;
-}
-
-#result{
-display:none;
-margin-top:20px;
-font-size:26px;
-color:#ff3366;
-font-weight:bold;
-}
-</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+<div id="stars"></div>
 
-<button onclick="openLove()">❤️ BẤM VÀO ĐÂY ❤️</button>
+<div class="card">
 
-<div id="loveBox">
+    <h1>💖 Gửi Em 💖</h1>
 
-<h2>💌 Gửi Người Anh Thương 💌</h2>
+    <p id="typing"></p>
 
-<p>
-Có thể em không biết...<br><br>
-
-Mỗi ngày được nói chuyện với em đều là niềm vui của anh.<br><br>
-
-Cảm ơn em đã xuất hiện trong cuộc đời anh.<br><br>
-
-Anh mong em sẽ luôn hạnh phúc và luôn mỉm cười.<br><br>
-
-❤️ Anh thương em rất nhiều ❤️
-</p>
-
-<div id="question">
-<h2>Em có đồng ý làm người yêu anh không? 💖</h2>
-
-<button id="yes">Đồng ý</button>
-
-<button id="no">Không</button>
+    <button id="loveBtn">
+        Đồng ý ❤️
+    </button>
 
 </div>
 
-<div id="result">
-🎉 Cảm ơn em! ❤️
-</div>
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-</div>
-
-</div>
-
-<script>
-
-function openLove(){
-document.getElementById("loveBox").style.display="block";
-document.getElementById("question").style.display="block";
-}
-
-setInterval(()=>{
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(20+Math.random()*30)+"px";
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},6000);
-
-},250);
-
-let no=document.getElementById("no");
-
-no.addEventListener("mouseover",()=>{
-
-no.style.position="absolute";
-no.style.left=Math.random()*80+"vw";
-no.style.top=Math.random()*80+"vh";
-
-});
-
-document.getElementById("yes").onclick=function(){
-
-document.getElementById("result").style.display="block";
-
-};
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
